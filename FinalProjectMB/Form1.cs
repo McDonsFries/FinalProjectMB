@@ -19,13 +19,13 @@ namespace FinalProjectMB
     {
         int scene = 1;  // tracks what part of the game the user is at
         Random randgen = new Random();
-        int rand = 0;
         int pixels = 1;
         int xyou = 230;
         int yyou = 330;
         int widthyou = 30;
         int heightyou = 60;
 
+        //Graphicic objects
         Graphics g;
         SolidBrush boomBrush1 = new SolidBrush(Color.Yellow);
         SolidBrush boomBrush2 = new SolidBrush(Color.OrangeRed);
@@ -38,10 +38,11 @@ namespace FinalProjectMB
         SolidBrush waterBrush = new SolidBrush(Color.Blue);
         SolidBrush demoneyesBrush = new SolidBrush(Color.Red);
         SolidBrush bulbBrush = new SolidBrush(Color.Yellow);
+        SolidBrush stairBrush = new SolidBrush(Color.Black);
         Pen drawPen = new Pen(Color.Black, 3);
         Pen WaterPen = new Pen(Color.Blue, 4);
         Pen housePen = new Pen(Color.Brown, 20);
-
+        //Sounds
         SoundPlayer creak = new SoundPlayer(Properties.Resources.creaky);
         SoundPlayer slam = new SoundPlayer(Properties.Resources.doorSlam);
         SoundPlayer growl = new SoundPlayer(Properties.Resources.growlgrowl);
@@ -217,8 +218,8 @@ namespace FinalProjectMB
                     break;
                 case 2:
                     outputLabel.Text = "You come across a river, do you go swimming?";
-                    spaceLabel.Text = "Yes";
-                    mLabel.Text = "No";
+                    spaceLabel.Text = "no";
+                    mLabel.Text = "yes";
                     break;
                 case 3:
                     outputLabel.Text = "You take off your clothes but see someone watching nearby, do you get out?";
@@ -246,24 +247,8 @@ namespace FinalProjectMB
                     mLabel.Text = "";
                     gf = new FinalProjectMB.GameForm();
                     gf.Show();
-                    //this.BackgroundImage = null;
-                    //outputLabel.Visible = false;
-                    //spaceLabel.Visible = false;
-                    //mLabel.Visible = false;
-                    //label1.Visible = false;
-                    //label2.Visible = false;
-                    //outputLabel.Enabled = false;
-                    //spaceLabel.Enabled = false;
-                    //mLabel.Enabled = false;
-                    //label1.Enabled = false;
-                    //label2.Enabled = false;
-                    //Refresh();
-                    //SnakeScreen ss = new SnakeScreen();
-                    //this.Controls.Add(ss);
-                    //ss.Show();
-                    //ss.Focus();
                     break;
-                case 8:  //start scene
+                case 8:
                     outputLabel.Text = "You come across an abandoned house, do you you go in or keep on the path?";
                     spaceLabel.Text = "Keep on the path";
                     mLabel.Text = "Go in the house";
@@ -297,22 +282,6 @@ namespace FinalProjectMB
                     Thread.Sleep(1000);
                     gf = new FinalProjectMB.GameForm();
                     gf.Show();
-                    //this.BackgroundImage = null;
-                    //outputLabel.Visible = false;
-                    //spaceLabel.Visible = false;
-                    //mLabel.Visible = false;
-                    //label1.Visible = false;
-                    //label2.Visible = false;
-                    //outputLabel.Enabled = false;
-                    //spaceLabel.Enabled = false;
-                    //mLabel.Enabled = false;
-                    //label1.Enabled = false;
-                    //label2.Enabled = false;
-                    //Refresh();
-                    //SnakeScreen ss2 = new SnakeScreen();
-                    //this.Controls.Add(ss2);
-                    //ss.Show();
-                    //ss.Focus();
                     break;
 
                 case 14:
@@ -365,49 +334,6 @@ namespace FinalProjectMB
                     
             }
 
-            //fire scene or whatever
-
-            //g.FillEllipse(boomBrush1, 250 - pixels / 2, 400 - pixels / 2, 45 + pixels, 45 + pixels);
-            //g.FillEllipse(boomBrush2, 259 - pixels / 2, 410 - pixels / 2, 30 + pixels, 30 + pixels);
-            //g.FillEllipse(boomBrush3, 266 - pixels / 2, 420 - pixels / 2, 15 + pixels, 15 + pixels);
-
-            //Thread.Sleep(10);
-
-            //change
-            //pixels += 5;
-            //g.FillEllipse(boomBrush1, 250 - pixels / 2, 400 - pixels / 2, 45 + pixels, 45 + pixels);
-            //g.FillEllipse(boomBrush2, 259 - pixels / 2, 410 - pixels / 2, 30 + pixels, 30 + pixels);
-            //g.FillEllipse(boomBrush3, 266 - pixels / 2, 420 - pixels / 2, 15 + pixels, 15 + pixels);
-
-            //Thread.Sleep(10);
-
-            ////change
-            //pixels += 5;
-
-            //Graphics g = this.CreateGraphics();
-            //SolidBrush boomBrush1 = new SolidBrush(Color.Yellow);
-            //SolidBrush boomBrush2 = new SolidBrush(Color.OrangeRed);
-            //SolidBrush boomBrush3 = new SolidBrush(Color.Red);
-            //SolidBrush houseBrush = new SolidBrush(Color.SaddleBrown);
-            //SolidBrush treebrush = new SolidBrush(Color.SaddleBrown);
-            //SolidBrush uppertree = new SolidBrush(Color.Green);
-            //Pen housePen = new Pen(Color.Brown, 21);
-
-            //g.FillRectangle(houseBrush, 285, 325, 73, 100);
-            //// g.FillRectangle(housePen, )
-            //g.DrawLine(housePen, 275, 345, 325, 305);
-            //g.DrawLine(housePen, 367, 345, 310, 305);
-
-            //// // Stairs 
-            //SolidBrush stairBrush = new SolidBrush(Color.Black);
-            //g.FillRectangle(stairBrush, 304, 410, 10, 15);
-            //g.FillRectangle(stairBrush, 314, 395, 10, 30);
-            //g.FillRectangle(stairBrush, 324, 380, 34, 45);
-
-            ////tree
-            //g.FillRectangle(treebrush, 315, 350, 20, 80);
-            //g.FillEllipse(uppertree, 300, 330, 50, 50);
-
 
 
             ////Demon
@@ -417,10 +343,6 @@ namespace FinalProjectMB
 
             //g.DrawLine(drawPen, 302, 315, 310, 340);
             //g.DrawLine(drawPen, 317, 315, 310, 340);
-
-            ////light bulb
-            //g.DrawLine(drawPen, 300, 300, 300, 330);
-            //g.FillEllipse(bulbBrush, 296, 329, 7, 7);
             Refresh();
 
         }
@@ -434,13 +356,16 @@ namespace FinalProjectMB
         {
             if (scene == 1)
             {
+                //path
                 e.Graphics.FillRectangle(redpathBrush, 0, 375, 200, 15);
+                //Forest
                 e.Graphics.FillRectangle(treebrush, 330, 335, 20, 80);
                 e.Graphics.FillEllipse(uppertree, 315, 300, 50, 50);
                 e.Graphics.FillRectangle(treebrush, 390, 345, 20, 80);
                 e.Graphics.FillEllipse(uppertree, 375, 300, 50, 50);
                 e.Graphics.FillRectangle(treebrush, 450, 345, 20, 80);
                 e.Graphics.FillEllipse(uppertree, 435, 300, 50, 50);
+                //you
                 e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
             }
             else if (scene == 2)
@@ -454,16 +379,28 @@ namespace FinalProjectMB
                 e.Graphics.DrawLine(WaterPen, 50, 380, 45, 370);
                 e.Graphics.DrawLine(WaterPen, 60, 380, 79, 390);
                 e.Graphics.DrawLine(WaterPen, 60, 390, 80, 390);
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
                 //Sound
                 walking.Play();
             }
-            else if(scene == 3)
+            else if (scene == 3)
             {
+                //water
+                e.Graphics.FillRectangle(waterBrush, 0, 380, 60, 10);
+                e.Graphics.FillRectangle(waterBrush, 43, 375, 7, 8);
+                e.Graphics.FillRectangle(waterBrush, 58, 382, 7, 7);
+                e.Graphics.FillRectangle(waterBrush, 64, 386, 7, 7);
+                e.Graphics.DrawLine(WaterPen, 40, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 50, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 60, 380, 79, 390);
+                e.Graphics.DrawLine(WaterPen, 60, 390, 80, 390);
                 //You
                 e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+                //sound
                 walking.Play();
             }
-            else if(scene == 4)
+            else if (scene == 4)
             {
                 //You
                 e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
@@ -483,12 +420,14 @@ namespace FinalProjectMB
                 e.Graphics.FillEllipse(boomBrush1, 250 - pixels / 2, 400 - pixels / 2, 45 + pixels, 45 + pixels);
                 e.Graphics.FillEllipse(boomBrush2, 259 - pixels / 2, 410 - pixels / 2, 30 + pixels, 30 + pixels);
                 e.Graphics.FillEllipse(boomBrush3, 266 - pixels / 2, 420 - pixels / 2, 15 + pixels, 15 + pixels);
+                //You
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
 
                 Thread.Sleep(10);
-                
+
                 pixels += 5;
             }
-            else if(scene == 6)
+            else if (scene == 6)
             {
                 //You
                 e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
@@ -496,7 +435,168 @@ namespace FinalProjectMB
             }
             else if (scene == 7)
             {
+                //you
                 e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+            }
+            else if (scene == 8)
+            {
+                //house
+                e.Graphics.FillRectangle(houseBrush, 285, 325, 73, 100);
+                e.Graphics.DrawLine(housePen, 275, 345, 325, 305);
+                e.Graphics.DrawLine(housePen, 367, 345, 310, 305);
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+
+            }
+            else if (scene == 9)
+            {
+                //house
+                e.Graphics.FillRectangle(houseBrush, 285, 325, 73, 100);
+                e.Graphics.DrawLine(housePen, 275, 345, 325, 305);
+                e.Graphics.DrawLine(housePen, 367, 345, 310, 305);
+                // Stairs 
+                e.Graphics.FillRectangle(stairBrush, 304, 410, 10, 15);
+                e.Graphics.FillRectangle(stairBrush, 314, 395, 10, 30);
+                e.Graphics.FillRectangle(stairBrush, 324, 380, 34, 45);
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+            }
+            else if (scene == 10)
+            {
+                //house
+                e.Graphics.FillRectangle(houseBrush, 285, 325, 73, 100);
+                e.Graphics.DrawLine(housePen, 275, 345, 325, 305);
+                e.Graphics.DrawLine(housePen, 367, 345, 310, 305);
+                // Stairs 
+                SolidBrush stairBrush = new SolidBrush(Color.Black);
+                e.Graphics.FillRectangle(stairBrush, 304, 410, 10, 15);
+                e.Graphics.FillRectangle(stairBrush, 314, 395, 10, 30);
+                e.Graphics.FillRectangle(stairBrush, 324, 380, 34, 45);
+                //light bulb
+                g.DrawLine(drawPen, 300, 300, 300, 330);
+                g.FillEllipse(bulbBrush, 296, 329, 7, 7);
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 380, yyou, widthyou, heightyou);
+                //sound
+                walking.Play();
+                creak.Play();
+
+            }
+            else if (scene == 11)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 380, yyou, widthyou, heightyou);
+                //sound
+                walking.Play();
+            }
+            else if (scene == 12)
+            {
+                //forest
+                e.Graphics.FillRectangle(treebrush, 330, 335, 20, 80);
+                e.Graphics.FillEllipse(uppertree, 315, 300, 50, 50);
+                e.Graphics.FillRectangle(treebrush, 390, 345, 20, 80);
+                e.Graphics.FillEllipse(uppertree, 375, 300, 50, 50);
+                e.Graphics.FillRectangle(treebrush, 450, 345, 20, 80);
+                e.Graphics.FillEllipse(uppertree, 435, 300, 50, 50);
+                //house
+                e.Graphics.FillRectangle(houseBrush, 285, 325, 73, 100);
+                e.Graphics.DrawLine(housePen, 275, 345, 325, 305);
+                e.Graphics.DrawLine(housePen, 367, 345, 310, 305);
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 380, yyou, widthyou, heightyou);
+                //sound
+                walking.Play();
+            }
+            else if (scene == 13)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+            }
+            else if (scene == 14)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+                //SOUND
+                tearing.Play();
+            }
+            else if (scene == 16)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 300, yyou, widthyou, heightyou);
+                //house
+                e.Graphics.FillRectangle(houseBrush, 285, 325, 73, 100);
+                e.Graphics.DrawLine(housePen, 275, 345, 325, 305);
+                e.Graphics.DrawLine(housePen, 367, 345, 310, 305);
+                // Stairs 
+                SolidBrush stairBrush = new SolidBrush(Color.Black);
+                e.Graphics.FillRectangle(stairBrush, 304, 410, 10, 15);
+                e.Graphics.FillRectangle(stairBrush, 314, 395, 10, 30);
+                e.Graphics.FillRectangle(stairBrush, 324, 380, 34, 45);
+                //light bulb
+                g.DrawLine(drawPen, 300, 300, 300, 330);
+                g.FillEllipse(bulbBrush, 296, 329, 7, 7);
+                //sound
+                slam.Play();
+            }
+            else if (scene == 17)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 300, yyou, widthyou, heightyou);
+                //sound
+                growl.Play();
+                tearing.Play();
+            }
+            else if (scene == 18)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 300, yyou, widthyou, heightyou);
+                //house
+                e.Graphics.FillRectangle(houseBrush, 285, 325, 73, 100);
+                e.Graphics.DrawLine(housePen, 275, 345, 325, 305);
+                e.Graphics.DrawLine(housePen, 367, 345, 310, 305);
+                // Stairs 
+                SolidBrush stairBrush = new SolidBrush(Color.Black);
+                e.Graphics.FillRectangle(stairBrush, 304, 410, 10, 15);
+                e.Graphics.FillRectangle(stairBrush, 314, 395, 10, 30);
+                e.Graphics.FillRectangle(stairBrush, 324, 380, 34, 45);
+                //Demon
+                g.FillEllipse(demonBrush, 300, 300, 18, 18);
+                g.FillEllipse(demoneyesBrush, 304, 303, 4, 4);
+                g.FillEllipse(demoneyesBrush, 310, 303, 4, 4);
+                g.DrawLine(drawPen, 302, 315, 310, 340);
+                g.DrawLine(drawPen, 317, 315, 310, 340);
+
+            }
+            else if (scene == 19)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 300, yyou, widthyou, heightyou);
+                //sound 
+                walking.Play();
+            }
+            else if (scene == 20)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 300, yyou, widthyou, heightyou);
+                //SOUND 
+                growl.Play();
+                tearing.Play();
+            }
+            else if (scene == 21)
+            {
+                //you
+                e.Graphics.DrawImage(Properties.Resources.Man, 100, yyou, widthyou, heightyou);
+
+                //River
+                e.Graphics.FillRectangle(waterBrush, 0, 380, 60, 10);
+                e.Graphics.FillRectangle(waterBrush, 43, 375, 7, 8);
+                e.Graphics.FillRectangle(waterBrush, 58, 382, 7, 7);
+                e.Graphics.FillRectangle(waterBrush, 64, 386, 7, 7);
+                e.Graphics.DrawLine(WaterPen, 40, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 50, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 60, 380, 79, 390);
+                e.Graphics.DrawLine(WaterPen, 60, 390, 80, 390);
+
             }
         }
     }
