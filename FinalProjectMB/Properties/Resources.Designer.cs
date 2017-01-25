@@ -107,16 +107,6 @@ namespace FinalProjectMB.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] screams {
-            get {
-                object obj = ResourceManager.GetObject("screams", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap snakerg {
@@ -127,22 +117,11 @@ namespace FinalProjectMB.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] Snap {
+        internal static System.IO.UnmanagedMemoryStream tear {
             get {
-                object obj = ResourceManager.GetObject("Snap", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] Tearing {
-            get {
-                object obj = ResourceManager.GetObject("Tearing", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("tear", resourceCulture);
             }
         }
         

@@ -21,38 +21,45 @@ namespace FinalProjectMB
         Random randgen = new Random();
         int rand = 0;
         int pixels = 1;
+        int xyou = 230;
+        int yyou = 330;
+        int widthyou = 30;
+        int heightyou = 60;
+
+        Graphics g;
+        SolidBrush boomBrush1 = new SolidBrush(Color.Yellow);
+        SolidBrush boomBrush2 = new SolidBrush(Color.OrangeRed);
+        SolidBrush boomBrush3 = new SolidBrush(Color.Red);
+        SolidBrush houseBrush = new SolidBrush(Color.Brown);
+        SolidBrush treebrush = new SolidBrush(Color.SaddleBrown);
+        SolidBrush uppertree = new SolidBrush(Color.Green);
+        SolidBrush redpathBrush = new SolidBrush(Color.Red);
+        SolidBrush demonBrush = new SolidBrush(Color.Black);
+        SolidBrush waterBrush = new SolidBrush(Color.Blue);
+        SolidBrush demoneyesBrush = new SolidBrush(Color.Red);
+        SolidBrush bulbBrush = new SolidBrush(Color.Yellow);
+        Pen drawPen = new Pen(Color.Black, 3);
+        Pen WaterPen = new Pen(Color.Blue, 4);
+        Pen housePen = new Pen(Color.Brown, 20);
+
+        SoundPlayer creak = new SoundPlayer(Properties.Resources.creaky);
+        SoundPlayer slam = new SoundPlayer(Properties.Resources.doorSlam);
+        SoundPlayer growl = new SoundPlayer(Properties.Resources.growlgrowl);
+        SoundPlayer locklock = new SoundPlayer(Properties.Resources.locklock);
+        SoundPlayer walking = new SoundPlayer(Properties.Resources.walkin);
+        SoundPlayer tearing = new SoundPlayer(Properties.Resources.tear);
 
         GameForm gf;
 
         public finalProject()
         {
             InitializeComponent();
-            Graphics g = this.CreateGraphics();
-            SolidBrush boomBrush1 = new SolidBrush(Color.Yellow);
-            SolidBrush boomBrush2 = new SolidBrush(Color.OrangeRed);
-            SolidBrush boomBrush3 = new SolidBrush(Color.Red);
-            SolidBrush houseBrush = new SolidBrush(Color.Brown);
-            SolidBrush treebrush = new SolidBrush(Color.SaddleBrown);
-            SolidBrush uppertree = new SolidBrush(Color.Green);
-            SolidBrush redpathBrush = new SolidBrush(Color.Red);
-            Pen housePen = new Pen(Color.Brown, 20);
-            SoundPlayer creak = new SoundPlayer(Properties.Resources.creaky);
-            SoundPlayer slam = new SoundPlayer(Properties.Resources.doorSlam);
-            SoundPlayer growl = new SoundPlayer(Properties.Resources.growlgrowl);
-            SoundPlayer locklock = new SoundPlayer(Properties.Resources.locklock);
-            SoundPlayer walking = new SoundPlayer(Properties.Resources.walkin);
+
+            g = this.CreateGraphics();
 
             outputLabel.Text = "You want to go on a hike, do you go down the forest path or the bright red path?";
             spaceLabel.Text = "Forest Path";
             mLabel.Text = "Bright Red Path";
-            //g.FillRectangle(redpathBrush, 0, 375, 200, 15);
-            //g.FillRectangle(treebrush, 330, 335, 20, 80);
-            //g.FillEllipse(uppertree, 315, 300, 50, 50);
-            //g.FillRectangle(treebrush, 390, 345, 20, 80);
-            //g.FillEllipse(uppertree, 375, 300, 50, 50);
-            //g.FillRectangle(treebrush, 450, 345, 20, 80);
-            //g.FillEllipse(uppertree, 435, 300, 50, 50);
-
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -357,6 +364,7 @@ namespace FinalProjectMB
                     break;
                     
             }
+
             //fire scene or whatever
 
             //g.FillEllipse(boomBrush1, 250 - pixels / 2, 400 - pixels / 2, 45 + pixels, 45 + pixels);
@@ -400,12 +408,6 @@ namespace FinalProjectMB
             //g.FillRectangle(treebrush, 315, 350, 20, 80);
             //g.FillEllipse(uppertree, 300, 330, 50, 50);
 
-            //SolidBrush demonBrush = new SolidBrush(Color.Black);
-            //SolidBrush waterBrush = new SolidBrush(Color.Blue);
-            //SolidBrush demoneyesBrush = new SolidBrush(Color.Red);
-            //SolidBrush bulbBrush = new SolidBrush(Color.Yellow);
-            //Pen drawPen = new Pen(Color.Black, 3);
-            //Pen WaterPen = new Pen(Color.Blue, 4);
 
 
             ////Demon
@@ -416,25 +418,86 @@ namespace FinalProjectMB
             //g.DrawLine(drawPen, 302, 315, 310, 340);
             //g.DrawLine(drawPen, 317, 315, 310, 340);
 
-            ////water
-            //g.FillRectangle(waterBrush, 0, 380, 60, 10);
-            //g.FillRectangle(waterBrush, 43, 375, 7, 8);
-            //g.FillRectangle(waterBrush, 58, 382, 7, 7);
-            //g.FillRectangle(waterBrush, 64, 386, 7, 7);
-            //g.DrawLine(WaterPen, 40, 380, 45, 370);
-            //g.DrawLine(WaterPen, 50, 380, 45, 370);
-            //g.DrawLine(WaterPen, 60, 380, 79, 390);
-            //g.DrawLine(WaterPen, 60, 390, 80, 390);
-
             ////light bulb
             //g.DrawLine(drawPen, 300, 300, 300, 330);
             //g.FillEllipse(bulbBrush, 296, 329, 7, 7);
+            Refresh();
 
         }
 
         private void outputLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void finalProject_Paint(object sender, PaintEventArgs e)
+        {
+            if (scene == 1)
+            {
+                e.Graphics.FillRectangle(redpathBrush, 0, 375, 200, 15);
+                e.Graphics.FillRectangle(treebrush, 330, 335, 20, 80);
+                e.Graphics.FillEllipse(uppertree, 315, 300, 50, 50);
+                e.Graphics.FillRectangle(treebrush, 390, 345, 20, 80);
+                e.Graphics.FillEllipse(uppertree, 375, 300, 50, 50);
+                e.Graphics.FillRectangle(treebrush, 450, 345, 20, 80);
+                e.Graphics.FillEllipse(uppertree, 435, 300, 50, 50);
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+            }
+            else if (scene == 2)
+            {
+                //water
+                e.Graphics.FillRectangle(waterBrush, 0, 380, 60, 10);
+                e.Graphics.FillRectangle(waterBrush, 43, 375, 7, 8);
+                e.Graphics.FillRectangle(waterBrush, 58, 382, 7, 7);
+                e.Graphics.FillRectangle(waterBrush, 64, 386, 7, 7);
+                e.Graphics.DrawLine(WaterPen, 40, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 50, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 60, 380, 79, 390);
+                e.Graphics.DrawLine(WaterPen, 60, 390, 80, 390);
+                //Sound
+                walking.Play();
+            }
+            else if(scene == 3)
+            {
+                //You
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+                walking.Play();
+            }
+            else if(scene == 4)
+            {
+                //You
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+            }
+            else if (scene == 5)
+            {
+                //River
+                e.Graphics.FillRectangle(waterBrush, 0, 380, 60, 10);
+                e.Graphics.FillRectangle(waterBrush, 43, 375, 7, 8);
+                e.Graphics.FillRectangle(waterBrush, 58, 382, 7, 7);
+                e.Graphics.FillRectangle(waterBrush, 64, 386, 7, 7);
+                e.Graphics.DrawLine(WaterPen, 40, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 50, 380, 45, 370);
+                e.Graphics.DrawLine(WaterPen, 60, 380, 79, 390);
+                e.Graphics.DrawLine(WaterPen, 60, 390, 80, 390);
+                //fire
+                e.Graphics.FillEllipse(boomBrush1, 250 - pixels / 2, 400 - pixels / 2, 45 + pixels, 45 + pixels);
+                e.Graphics.FillEllipse(boomBrush2, 259 - pixels / 2, 410 - pixels / 2, 30 + pixels, 30 + pixels);
+                e.Graphics.FillEllipse(boomBrush3, 266 - pixels / 2, 420 - pixels / 2, 15 + pixels, 15 + pixels);
+
+                Thread.Sleep(10);
+                
+                pixels += 5;
+            }
+            else if(scene == 6)
+            {
+                //You
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+                walking.Play();
+            }
+            else if (scene == 7)
+            {
+                e.Graphics.DrawImage(Properties.Resources.Man, xyou, yyou, widthyou, heightyou);
+            }
         }
     }
 }
